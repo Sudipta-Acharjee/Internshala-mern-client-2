@@ -4,6 +4,8 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import 'bootstrap/dist/css/bootstrap.css';
+import Datalist from './Components/Datalist';
+import Home from './Components/Home';
 
 
 ReactDOM.render(

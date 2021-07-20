@@ -1,0 +1,24 @@
+.vehicleCart{
+    width:100%;
+    padding-top: 5px;
+    border-radius: 5px;
+    height: 490px;
+    border: 2px solid lightseagreen;
+    margin-right: 5px;
+}
+.column {
+    width: 16%;
+    margin-left: 50px;
+    height: 500px;
+}
+.row{
+    width:25%;
+    float: left;
+   
+}
+.vehicleCart:hover{
+    box-shadow: 30px;
+    height: 495px;
+    border: 2px solid rgba(220, 43, 226, 0.945);
+    color: rgb(34, 117, 34);
+}
