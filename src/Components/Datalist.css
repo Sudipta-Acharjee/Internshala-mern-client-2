@@ -17,7 +17,7 @@
    
 }
 .vehicleCart:hover{
-    box-shadow: 30px;
+    box-shadow: 40px;
     height: 495px;
     border: 2px solid rgba(220, 43, 226, 0.945);
     color: rgb(34, 117, 34);
