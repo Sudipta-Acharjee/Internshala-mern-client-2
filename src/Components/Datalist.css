@@ -1,10 +1,11 @@
 .vehicleCart{
     width:100%;
-    padding-top: 5px;
+    padding-top: 35px;
     border-radius: 5px;
     height: 490px;
     border: 2px solid lightseagreen;
     margin-right: 5px;
+    margin-top: 10px;
 }
 .column {
     width: 16%;

@@ -1,7 +1,8 @@
 import React from 'react';
-import { Card, CardGroup } from 'react-bootstrap';
 import './Front.css';
 import Home from './Home';
+
+import Filter from './Filter/Filter';
 
 const Front = () => {
     return (
@@ -9,9 +10,11 @@ const Front = () => {
             <div className="overflow-auto">
                 <h1 className="text">Assignment</h1>
             </div>
-            <div >
-                <Home/>
-            </div>
+           <div className="d-flex">
+               <div>
+                   <Home/>
+               </div>
+           </div>
         </div>
     );
 };
