@@ -30,7 +30,7 @@ const Home = () => {
 
     return (
         <section>
-            {/* <button onClick={handleAddData}>Add Product</button> */}
+            <button onClick={handleAddData}>Add Product</button>
             <input style={{ "marginLeft": "43%" }} type="text" placeholder="Type intensity, End year etc"  value={searchTerm} onChange={handleChange} />
             {
                 searchResults.map(user => <Datalist user={user}></Datalist>)
