@@ -1,8 +1,8 @@
 import React from 'react';
 import './Datalist.css'
 
-const userlist = ({ user }) => {
-    const { title, topic, source, intensity, likelihood, relevance, country, end_year, region } = user;
+const userlist = ({ r }) => {
+    const { title, topic, source, intensity, likelihood, relevance, country, end_year, region } = r;
 
     return (
         <div>

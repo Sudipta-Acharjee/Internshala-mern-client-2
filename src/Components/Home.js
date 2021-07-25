@@ -1,42 +1,67 @@
-import React, { useState } from 'react';
-import Fakedata from '../jsondata.json';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import Datalist from './Datalist';
 
-const Home = () => {
-    const first = Fakedata.slice(0, 1500);
-    const [searchTerm, setSearchTerm] = React.useState("");
-    let [searchResults,setSearchResults] = React.useState([]);
+export default function Search() {
+    const [data, setData] = useState([]);
+    const [filtered, setFilterd] = useState([]);
+    let [result, setResult] = useState("");
 
-    const handleChange = (event) =>{
-        return setSearchTerm(event.target.value=== "co");
-    }
-    React.useEffect(() => {
-        const results = first.filter(person =>
-          person.toString().toLowerCase().includes(searchTerm)
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const res = await axios.get('http://localhost:5000/data');
+                setData(res.data);
+                setFilterd(res.data);
+            } catch (err) {
+                throw new Error(err);
+            }
+        };
+        fetchData();
+    }, []);
+
+    useEffect(() => {
+        let results = filtered.filter(res => res.title.toLowerCase().includes(result)
         );
-        setSearchResults(results);
-      }, [searchTerm]);
+        let results1 = filtered.filter(res => res.topic.toLowerCase().includes(result)
+        );
+        let results2 = filtered.filter(res => res.source.toLowerCase().includes(result)
+        );
+        let results3 = filtered.filter(res => res.country.toLowerCase().includes(result)
+        );
+        let results4 = filtered.filter(res => res.region.toLowerCase().includes(result)
+        );
+        setData(results || results1 || results2 || results3 || results4);
+    }, [result])
+    console.log(data)
 
-    const handleAddData=()=>{
-        fetch('http://localhost:5000/addData',{
+
+    const onChange = (e) => {
+        setResult(e.target.value);
+    }
+    const handleAddData = () => {
+        fetch('http://localhost:5000/addData', {
             method: 'POST',
-            headers:{
-                'Content-Type':'application/json'
+            headers: {
+                'Content-Type': 'application/json'
             },
-            body: JSON.stringify(first)
+            body: JSON.stringify(data)
         })
     }
-    
 
     return (
-        <section>
-            <button onClick={handleAddData}>Add Product</button>
-            <input style={{ "marginLeft": "43%" }} type="text" placeholder="Type intensity, End year etc"  value={searchTerm} onChange={handleChange} />
-            {
-                searchResults.map(user => <Datalist user={user}></Datalist>)
+        <div>
+            {/* <button onClick={handleAddData}>Add Product</button> */}
+            <input style={{ "marginLeft": "43%" }}
+                type="text"
+                placeholder="Name of Title,Topic,source,region..."
+                value={result}
+                onChange={onChange}
+            />
+            {data.map((r, i) => (
+                <Datalist key={i} r={r}></Datalist>
+            ))
             }
-        </section>
-    );
-};
-
-export default Home;
+        </div>
+    )
+}
