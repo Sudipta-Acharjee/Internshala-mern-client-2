@@ -4,6 +4,7 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import 'bootstrap/dist/css/bootstrap.css';
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
 ReactDOM.render(
   <React.StrictMode>

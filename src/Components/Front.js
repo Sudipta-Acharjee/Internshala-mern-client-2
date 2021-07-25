@@ -1,8 +1,7 @@
 import React from 'react';
 import './Front.css';
 import Home from './Home';
-
-import Filter from './Filter/Filter';
+import Test from './Test';
 
 const Front = () => {
     return (
@@ -12,6 +11,7 @@ const Front = () => {
             </div>
            <div className="d-flex">
                <div>
+                   {/* <Test/> */}
                    <Home/>
                </div>
            </div>
